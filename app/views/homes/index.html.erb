@@ -1,0 +1,36 @@
+<div class='mt-20'>
+  <p>
+    Search for City weather
+  </p>
+
+  <%= form_tag root_path, :method => :get do %>
+    <div class="form__group">
+      <%= label_tag :city_name, "City Name"%>
+      <%= text_field_tag :city_name %>
+    </div>
+
+    <%= submit_tag "Submit" %>
+
+  <% end %>
+  <% if @data.present? %>
+    <div>
+      <p><%= @data["weather"].first["description"] %></p>
+    </div>
+    <table>
+      <tr>
+        <th>Temperature</th>
+        <th>Feels Like</th>
+        <th>Min Temp</th>
+        <th>Max Temp</th>
+        <th>Humidity</th>
+      </tr>
+      <tr>
+        <th><%= @data["main"]["temp"] - 273 %> | </th>
+        <th><%= @data["main"]["feels_like"] - 273 %> | </th>
+        <th><%= @data["main"]["temp_min"] - 273 %> | </th>
+        <th><%= @data["main"]["temp_max"] - 273 %> | </th>
+        <th><%= @data["main"]["humidity"] %></th>
+      </tr>
+    </table>
+  <% end %>
+</div>
