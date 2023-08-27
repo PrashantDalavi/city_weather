@@ -13,8 +13,12 @@ Steps to Set Up:
 3. bundle install
 4. rails db:create 
 5. rails db:migrate
-6. EDITOR=nano rails credentials:edit 
-  => to update the weather map API key for security purpose. 
+6. rails db:seed
+   => a sample user has been created to login
+   user_id: test@test.com
+   password: password
+7. EDITOR=nano rails credentials:edit 
+   => to update the weather map API key for security purpose. 
 
 Other Basic Requirements
 webpacker
@@ -32,4 +36,4 @@ Application OverView:
   d. role based use table access(custom/cancancan gem)
   e. Using cookies to make sign in and sign out a better functionality, just like devise 
 
-  
+
